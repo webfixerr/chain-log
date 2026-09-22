@@ -17,7 +17,7 @@ hash(entry) = SHA256( index + timestamp + data + prevHash )
 Because each entry commits to the previous one, the entries form a chain. Alter any past entry, reorder them, or delete one, and every hash after it stops matching. A single `verify()` call walks the chain and tells you exactly where it broke.
 
 ```ts
-import { ChainLog, FileStore } from "chain-log";
+import { ChainLog, FileStore } from "@webfixerr/chain-log";
 
 const log = new ChainLog({ store: new FileStore("./audit.log") });
 log.append({ actor: "admin", action: "deleted_user", target: "user_42" });

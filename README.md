@@ -1,8 +1,8 @@
 # chain-log
 
 [![CI](https://github.com/webfixerr/chain-log/actions/workflows/ci.yml/badge.svg)](https://github.com/webfixerr/chain-log/actions/workflows/ci.yml)
-[![npm](https://img.shields.io/npm/v/chain-log.svg)](https://www.npmjs.com/package/chain-log)
-[![license](https://img.shields.io/npm/l/chain-log.svg)](./LICENSE)
+[![npm](https://img.shields.io/npm/v/@webfixerr/chain-log.svg)](https://www.npmjs.com/package/@webfixerr/chain-log)
+[![license](https://img.shields.io/npm/l/@webfixerr/chain-log.svg)](./LICENSE)
 
 **Make your existing audit log tamper-evident in five minutes. A library, not a database, not infrastructure.**
 
@@ -11,7 +11,7 @@ Ordinary audit logs — a database table, a log file — can be silently edited 
 No new database to migrate to. No service to run. **Zero runtime dependencies.** Just a library you drop into the app you already have.
 
 ```bash
-npm install chain-log
+npm install @webfixerr/chain-log
 ```
 
 Works with both `import` and `require`, on Node 18+.
@@ -19,7 +19,7 @@ Works with both `import` and `require`, on Node 18+.
 ## Quick start
 
 ```ts
-import { ChainLog, FileStore } from "chain-log";
+import { ChainLog, FileStore } from "@webfixerr/chain-log";
 
 const log = new ChainLog({ store: new FileStore("./audit.log") });
 
@@ -54,7 +54,7 @@ Hashing is over a **canonical** JSON form: object keys are sorted recursively, s
 Ships with two stores; pick one, or implement the tiny `Store` interface (three methods) for your own backend:
 
 ```ts
-import { MemoryStore, FileStore } from "chain-log";
+import { MemoryStore, FileStore } from "@webfixerr/chain-log";
 
 new ChainLog({ store: new MemoryStore() });            // in-process
 new ChainLog({ store: new FileStore("./audit.log") }); // JSONL file

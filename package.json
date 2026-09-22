@@ -1,5 +1,5 @@
 {
-  "name": "chain-log",
+  "name": "@webfixerr/chain-log",
   "version": "0.1.0",
   "description": "Make your existing audit log tamper-evident in five minutes. A library, not a database, not infrastructure.",
   "keywords": [
