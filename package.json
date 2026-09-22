@@ -1,0 +1,74 @@
+{
+  "name": "chain-log",
+  "version": "0.1.0",
+  "description": "Make your existing audit log tamper-evident in five minutes. A library, not a database, not infrastructure.",
+  "keywords": [
+    "audit-log",
+    "tamper-evident",
+    "tamper-proof",
+    "hash-chain",
+    "integrity",
+    "verifiable",
+    "compliance",
+    "soc2",
+    "hipaa",
+    "security",
+    "append-only",
+    "sha256",
+    "forensics"
+  ],
+  "homepage": "https://github.com/webfixerr/chain-log#readme",
+  "bugs": {
+    "url": "https://github.com/webfixerr/chain-log/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webfixerr/chain-log.git"
+  },
+  "license": "MIT",
+  "author": "webfixerr",
+  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "src",
+    "!dist/**/*.tsbuildinfo"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "clean": "node scripts/clean.mjs",
+    "typecheck": "tsc -p tsconfig.json",
+    "build": "npm run clean && tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json && node scripts/postbuild.mjs",
+    "test": "tsx test/chainlog.test.ts",
+    "smoke": "node scripts/smoke.mjs",
+    "demo": "tsx demo.ts",
+    "verify": "npm run typecheck && npm test && npm run build && npm run smoke",
+    "prepublishOnly": "npm run verify"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.0",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.2"
+  }
+}
